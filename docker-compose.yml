@@ -1,0 +1,17 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+  chrome1:
+    image: selenium/node-chrome
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  tests:
+    image: tests
+    depends_on:
+      - hub
+      - chrome1
