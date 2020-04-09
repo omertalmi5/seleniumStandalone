@@ -7,6 +7,6 @@ services:
     volumes:
     - /dev/shm:/dev/shm
   tests:
-    image: tests
+    build: .
     depends_on:
       - standalone-chrome
